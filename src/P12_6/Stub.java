@@ -1,3 +1,5 @@
+package P12_6;
+
 /**
  * Created with IntelliJ IDEA.
  * User: ag
