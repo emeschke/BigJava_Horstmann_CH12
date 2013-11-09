@@ -14,10 +14,10 @@ import java.util.Scanner;
 public class VendingMachineInterface {
     //Create a scanner class and the vending machine object which this interface will reference.
     private Scanner in = new Scanner(System.in);
-    VendingMachine vendingMachine;
+    private VendingMachine vendingMachine;
     //This coins object holds the coins inserted in anticipation of the present transaction but not yet exchanged
     //for a product.
-    Coins transactionCoin = new Coins();
+    private Coins transactionCoin = new Coins();
 
     //Constructor of a vending machine interface that is passed a vending machine.
     public VendingMachineInterface(VendingMachine vendingMachine){
