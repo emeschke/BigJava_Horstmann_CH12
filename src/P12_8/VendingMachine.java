@@ -13,33 +13,54 @@ public class VendingMachine {
     private ArrayList<Product> products = new ArrayList<Product>();
     private Coins coinCounter = new Coins();
 
+    //Add a product to the machine.  Only used in initializing the vending machine.
     public void addProduct(Product product){
         products.add(product);
     }
 
+    //Add coins to the machine.  Also only used at initialization.
     public void addCoins(Coins c){
         coinCounter.addCoins(c);
     }
 
-    public void checkMoney(){
-        System.out.printf("There is %.2d in the machine.", coinCounter.getTotal());
-
+    //Check how much money is in the machine.
+    public double checkMoney(){
+        return coinCounter.getTotal();
     }
 
-    public void printProductList(){
-        for (int i = 0; i < products.size(); i++) {
-            System.out.println(products.get(i).getProductName() +  ", $" + products.get(i).getPrice());
-        }
+    //Return the array of products.  Is this good form, passing an array of the products like this?
+    public ArrayList<Product> getProducts(){
+        return products;
     }
 
-    public void printProductInventory(){
-        for (int i = 0; i < products.size(); i++) {
-            System.out.println(products.get(i).getProductName() +  ", " + products.get(i).getCount());
-        }
+    //Get the inventory of a particular item.
+    public int getProductInventory(int i){
+        return products.get(i).getCount();
     }
 
+    //Reset the coin counter to zero because the coins have been collected or deposited.
     public void collectMoney(){
-        System.out.printf("Collecting money.  Withdrawing %.2d from the machine.", coinCounter.getTotal());
         coinCounter.resetCoins();
     }
+
+    //Add a specified amount of inventory to the product inventory in the vending machine.
+    public void addInventory(int choice, int addNumber){
+        products.get(choice).addCount(addNumber);
+    }
+
+    //Return the price of an item from the product list.
+    public double getCost(int item){
+        return products.get(item).getPrice();
+    }
+
+    //Get the name of a product
+    public String getName(int item){
+        return products.get(item).getProductName();
+    }
+
+    //Buy an item from the product list.
+    public void buyItem(int item){
+        products.get(item).buyItem();
+    }
+
 }

@@ -8,16 +8,12 @@ package P12_6;
  * To change this template use File | Settings | File Templates.
  */
 public class Student {
+    //Student class is a student with a name and a level.  There is a special method that increments the student level
+    //by one.
     private String studentName;
     private int studentLevel;
 
-    public int getTries() {
-        return tries;
-    }
 
-    public void setTries(int tries) {
-        this.tries = tries;
-    }
 
     public int getStudentLevel() {
         return studentLevel;
@@ -35,5 +31,4 @@ public class Student {
         this.studentName = studentName;
     }
 
-    private int tries;
 }

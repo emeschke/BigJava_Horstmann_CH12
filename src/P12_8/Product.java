@@ -12,6 +12,7 @@ public class Product {
     private int count;
     private double price;
 
+    //Initialize the product with a name, inventory count and price.
     public Product(String name, int count, double price){
         this.productName = name;
         this.count = count;
@@ -22,8 +23,16 @@ public class Product {
         return count;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    //Add inventory to the product.  It is possible to take out inventory (a negative number) but method checks to
+    //make sure it won't go below 0.
+    public void addCount(int count) {
+        this.count += count;
+        this.count = Math.max(0, this.count);
+    }
+
+    //Decrement the inventory count by 1 to represent a purchase.
+    public void buyItem(){
+        this.count -= 1;
     }
 
     public double getPrice() {
