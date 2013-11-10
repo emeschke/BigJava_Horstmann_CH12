@@ -2,6 +2,95 @@
 # Use this file to answer Review Exercises from the Big Java textbook
 #########################################################################
 
+R12.1--The book recommends the following three steps in the process of object-oriented design:
+--Discover classes.
+--Discover responsibilities of the classes.
+--Describe relationships among the classes.
+
+R12.2--A rule of thumb the book recommends for discovering classes is that nouns correspond to potential class names.
+
+R12.3--A rule of thumb the book recommends for discovering methods is that the methods correspond to verbs in the
+description of the program's function.
+
+R12.8--
+A. Neither
+B. Neither
+C. Inheritance
+D. Neither
+E. Aggregation
+F. Inheritance
+G. Neither
+H. Aggregation
+
+R12.11--Here are the cards for Coin and for CashRegister:
+
+                Coin                                    CashRegister
+GetValue                                    EnterPayment                Coin
+                                            GetPayment
+
+R12.13--Attached in pdf
+
+R12.14--Attached in pdf
+
+R12.16--The classes that should be used to implement the scheme are:
+--Users (this may be necessary in order to track users, if they are anonymous it is not.)
+--Coins
+--Vending Machine
+--Product
+--Button (although this may not be a separate class, it could be part of the GUI)
+
+R12.18--Attached in pdf
+
+R12.19--Added the library syntax were it was needed.  For example java.io.File() rather than import java.io
+at the top and then just File() in the method body.
+
+/**
+   This program displays the most common baby names. Half of boys and girls in
+   the United States were given these names in the 1990s.
+*/
+public class BabyNames
+{
+   public static final int LIMIT = 50;
+
+   public static void main(String[] args) throws java.io.FileNotFoundException
+   {
+       java.util.Scanner in = new java.util.Scanner(new java.io.File("babynames.txt"));
+
+      double boyTotal = 0;
+      double girlTotal = 0;
+
+      while (boyTotal < LIMIT || girlTotal < LIMIT)
+      {
+         int rank = in.nextInt();
+         System.out.print(rank + " ");
+
+         boyTotal = processName(in, boyTotal);
+         girlTotal = processName(in, girlTotal);
+
+         System.out.println();
+      }
+
+      in.close();
+   }
+
+   /**
+      Reads name information, prints the name if total >= 0, and adjusts the total.
+      @param in the input stream
+      @param total the total percentage that should still be processed
+      @return the adjusted total
+   */
+   public static double processName(java.util.Scanner in, double total)
+   {
+      String name = in.next();
+      int count = in.nextInt();
+      double percent = in.nextDouble();
+
+      if (total < LIMIT) { System.out.print(name + " "); }
+      total = total + percent;
+      return total;
+   }
+}
+
 
 
 
